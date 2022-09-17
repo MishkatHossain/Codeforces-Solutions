@@ -1,35 +1,33 @@
 #include<bits/stdc++.h>
-#define mem(array,num) memset(array,num,sizeof(array))
 using namespace std;
+
 int main()
 {
-    long int x,c,i,j,s,n,array,num;
-    pair<int, int>a[1000];
-    while(cin>>s>>n)
-    {
-        c=1;
-        for(i=0;i<n;i++)
-        {
-            cin>>a[i].first>>a[i].second;
+    int c,s,n;
 
-        }
-        sort(a,a+n);
-         for(i=0;i<n;i++)
-         {
-             if(s<=a[i].first)
-             {
-                 c=0;
-                 break;
-             }
-             else
-             {
-                 s=s+a[i].second;
-             }
+    pair<int,int> a[1000];
+
+    cin>> s >> n;
+
+    c = 1;
+    for(int i=0;i<n;i++)
+        cin>> a[i].first >> a[i].second;
+
+    sort(a,a+n);
+
+        for(int i=0; i<n; i++)
+        {
+            if(s<=a[i].first) // break if strength <= dragon
+            {
+                c=0;
+                break;
+            }
+            s=s+a[i].second; // Otherwise keep adding the bonus life with strength
          }
-         if(c==0)
-            cout<<"NO\n";
-         else
-            cout<<"YES\n";
-    }
-    return 0;
+
+    if(c==0)
+        cout<<"NO\n";
+    else
+        cout<<"YES\n";
+
 }
